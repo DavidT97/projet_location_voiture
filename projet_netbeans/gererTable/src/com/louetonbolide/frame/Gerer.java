@@ -363,13 +363,13 @@ public class Gerer extends javax.swing.JFrame {
                                 .addComponent(supprimer)
                                 .addGap(18, 18, 18)
                                 .addComponent(ajouter)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AjouterLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jDesktopPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(187, 187, 187)))
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(105, 105, 105))
+                .addGap(87, 87, 87))
         );
         AjouterLayout.setVerticalGroup(
             AjouterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -627,9 +627,12 @@ public class Gerer extends javax.swing.JFrame {
         type.setText("");
         dispo.setText("");
         pop.setText("");
+        prix.setText("");
+        localisation.setText("");
+        boite.setText("");
     }
     
-    private Image resizeImage(byte[] imageData, int targetWidth, int targetHeight) {
+    public Image resizeImage(byte[] imageData, int targetWidth, int targetHeight) {
         try {
             // Lecture de l'image depuis le tableau d'octets
             ByteArrayInputStream bais = new ByteArrayInputStream(imageData);
@@ -753,7 +756,7 @@ public class Gerer extends javax.swing.JFrame {
                String t12 = rs.getString("Boîte");
                boite.setText(t12);
                
-               byte[] dataimage = rs.getBytes("image");
+               byte[] dataimage = rs.getBytes("imageext");
                Image resizeImage = resizeImage(dataimage,261,179);
                Format = new ImageIcon(resizeImage);
                image.setIcon(Format);
