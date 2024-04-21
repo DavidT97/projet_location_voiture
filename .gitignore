@@ -47,4 +47,8 @@ replay_pid*
 /cnx/build/
 /Javah/nbproject/private/
 /projet/nbproject/private/
+<<<<<<< HEAD
+/cnx/dist/
+=======
 >>>>>>> 88aa3898c3c39f97264d75ac05c4a67489ceb722
+>>>>>>> 288f9326803d7a05c36eb062e791e7977c50047a

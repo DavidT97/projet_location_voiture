@@ -3,11 +3,21 @@
   <component name="NewModuleRootManager" inherit-compiler-output="true">
     <exclude-output />
     <content url="file://$MODULE_DIR$">
+<<<<<<< HEAD
+      <sourceFolder url="file://$MODULE_DIR$/cnx/src" isTestSource="false" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+=======
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="flatlaf-3.4.1" level="project" />
+<<<<<<< HEAD
     <orderEntry type="library" name="itextpdf-5.5.9" level="project" />
+=======
+>>>>>>> 288f9326803d7a05c36eb062e791e7977c50047a
+>>>>>>> 7c0a20cb58398602e3132a2f098f54685872c267
   </component>
 </module>
