@@ -1,15 +1,34 @@
-# Compiled class file
-*.class
+### IntelliJ IDEA ###
+out/
+!**/src/main/**/out/
+!**/src/test/**/out/
 
-# Log file
-*.log
+### Eclipse ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+bin/
+!**/src/main/**/bin/
+!**/src/test/**/bin/
 
-# BlueJ files
-*.ctxt
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
 
-# Mobile Tools for Java (J2ME)
-.mtj.tmp/
+### VS Code ###
+.vscode/
 
+<<<<<<< HEAD
+### Mac OS ###
+.DS_Store
+=======
 # Package Files #
 *.jar
 *.war
@@ -28,4 +47,8 @@ replay_pid*
 /cnx/build/
 /Javah/nbproject/private/
 /projet/nbproject/private/
+<<<<<<< HEAD
 /cnx/dist/
+=======
+>>>>>>> 88aa3898c3c39f97264d75ac05c4a67489ceb722
+>>>>>>> 288f9326803d7a05c36eb062e791e7977c50047a

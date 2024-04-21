@@ -1,0 +1,15 @@
+<component name="libraryTable">
+  <library name="flatlaf-3.4.1">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/libs/flatlaf-3.4.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/mysql-connector-java-8.0.25.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/rs2xml.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="file://$PROJECT_DIR$/cnx/src" />
+      <root url="file://$PROJECT_DIR$/src" />
+      <root url="jar://$PROJECT_DIR$/libs/rs2xml.jar!/src" />
+    </SOURCES>
+  </library>
+</component>
