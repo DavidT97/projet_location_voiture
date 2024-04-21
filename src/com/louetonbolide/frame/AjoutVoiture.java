@@ -20,7 +20,9 @@ public class AjoutVoiture extends javax.swing.JFrame {
     Connection conn = null;
     ResultSet rs = null;
     PreparedStatement ps = null;
-    byte[] photo = null;
+    byte[] photoext = null;
+    byte[] photoint = null;
+    
 
     /**
      * Creates new form AjoutVoiture
@@ -58,7 +60,7 @@ public class AjoutVoiture extends javax.swing.JFrame {
         dispoAdd = new javax.swing.JTextField();
         popAdd = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
-        txtimg = new javax.swing.JTextField();
+        imgext = new javax.swing.JTextField();
         jLabel34 = new javax.swing.JLabel();
         parcourir = new javax.swing.JButton();
         locadd = new javax.swing.JTextField();
@@ -67,6 +69,9 @@ public class AjoutVoiture extends javax.swing.JFrame {
         boite = new javax.swing.JTextField();
         jLabel40 = new javax.swing.JLabel();
         prix = new javax.swing.JTextField();
+        jLabel41 = new javax.swing.JLabel();
+        imgint = new javax.swing.JTextField();
+        parcourir1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Ajouter");
@@ -107,7 +112,7 @@ public class AjoutVoiture extends javax.swing.JFrame {
         });
 
         jLabel34.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel34.setText("Image");
+        jLabel34.setText("Image extérieur");
 
         parcourir.setText("...");
         parcourir.addActionListener(new java.awt.event.ActionListener() {
@@ -128,6 +133,16 @@ public class AjoutVoiture extends javax.swing.JFrame {
         prix.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 prixActionPerformed(evt);
+            }
+        });
+
+        jLabel41.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel41.setText("Image interieur");
+
+        parcourir1.setText("...");
+        parcourir1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                parcourir1ActionPerformed(evt);
             }
         });
 
@@ -181,7 +196,7 @@ public class AjoutVoiture extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel34, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(txtimg)
+                        .addComponent(imgext)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(parcourir))
                     .addGroup(layout.createSequentialGroup()
@@ -195,7 +210,13 @@ public class AjoutVoiture extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel40, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(prix)))
+                        .addComponent(prix))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel41, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(imgint)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(parcourir1)))
                 .addContainerGap(46, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -239,9 +260,14 @@ public class AjoutVoiture extends javax.swing.JFrame {
                     .addComponent(popAdd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtimg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(imgext, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(parcourir)
                     .addComponent(jLabel34, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(imgint, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(parcourir1)
+                    .addComponent(jLabel41, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(locadd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -265,7 +291,7 @@ public class AjoutVoiture extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         try{
-            String requete = "insert into voitures (Immatriculation, Marque, Modele, Motorisation, Puissance, Nb_de_place, Type, Dispo, Popularite, Prix, Localisation, Boîte, image) values(?,?,?,?,?,?,?,?,?,?,?,?,?)";
+            String requete = "insert into voitures (Immatriculation, Marque, Modele, Motorisation, Puissance, Nb_de_place, Type, Dispo, Popularite, Prix, Localisation, Boîte, imageext, imageint) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
             ps = conn.prepareStatement(requete);
             
             ps.setString(1, immatAdd.getText());
@@ -280,7 +306,9 @@ public class AjoutVoiture extends javax.swing.JFrame {
             ps.setString(10, prix.getText());
             ps.setString(11, locadd.getText());
             ps.setString(12, boite.getText());
-            ps.setBytes(13, photo);
+            ps.setBytes(13, photoext);
+            ps.setBytes(14, photoint);
+            
             
             
             
@@ -310,7 +338,7 @@ public class AjoutVoiture extends javax.swing.JFrame {
         if(vpath==null){
             
         }else{
-            txtimg.setText(vpath);
+            imgext.setText(vpath);
         }
         try{
             File image = new File(vpath);
@@ -320,7 +348,7 @@ public class AjoutVoiture extends javax.swing.JFrame {
             for (int re ; (re =fs.read(b)) !=- 1; ){
             bs.write(b, 0, re);
             }
-            photo = bs. toByteArray();
+            photoext = bs. toByteArray();
         }catch(Exception e){
             e.printStackTrace();
         }
@@ -332,6 +360,29 @@ public class AjoutVoiture extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_prixActionPerformed
 
+    private void parcourir1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_parcourir1ActionPerformed
+        ConnexionBDD conn = new ConnexionBDD();
+        conn.filen();
+        String vpath = conn.getp();
+        if(vpath==null){
+            
+        }else{
+            imgint.setText(vpath);
+        }
+        try{
+            File image = new File(vpath);
+            FileInputStream fs = new FileInputStream (image);
+            ByteArrayOutputStream bs = new ByteArrayOutputStream();
+            byte[] b =new byte[1024];
+            for (int re ; (re =fs.read(b)) !=- 1; ){
+            bs.write(b, 0, re);
+            }
+            photoint = bs. toByteArray();
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_parcourir1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField boite;
@@ -339,6 +390,8 @@ public class AjoutVoiture extends javax.swing.JFrame {
     private javax.swing.JLabel dispo1;
     private javax.swing.JLabel dispo2;
     private javax.swing.JTextField dispoAdd;
+    private javax.swing.JTextField imgext;
+    private javax.swing.JTextField imgint;
     private javax.swing.JLabel immat;
     private javax.swing.JLabel immat1;
     private javax.swing.JLabel immat2;
@@ -379,6 +432,7 @@ public class AjoutVoiture extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel40;
+    private javax.swing.JLabel jLabel41;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
@@ -401,6 +455,7 @@ public class AjoutVoiture extends javax.swing.JFrame {
     private javax.swing.JLabel moteur2;
     private javax.swing.JTextField motorisationAdd;
     private javax.swing.JButton parcourir;
+    private javax.swing.JButton parcourir1;
     private javax.swing.JLabel place;
     private javax.swing.JLabel place1;
     private javax.swing.JLabel place2;
@@ -414,7 +469,6 @@ public class AjoutVoiture extends javax.swing.JFrame {
     private javax.swing.JLabel puissance;
     private javax.swing.JLabel puissance1;
     private javax.swing.JLabel puissance2;
-    private javax.swing.JTextField txtimg;
     private javax.swing.JLabel type;
     private javax.swing.JLabel type1;
     private javax.swing.JLabel type2;

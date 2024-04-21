@@ -37,6 +37,7 @@ public class Gerer extends javax.swing.JFrame {
         initComponents();
         AffichageVoiture();
         AffichageClients();
+        AffichageOffre();
         
         
     }
@@ -114,9 +115,16 @@ public class Gerer extends javax.swing.JFrame {
         jLabel19 = new javax.swing.JLabel();
         statut = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        TableO = new javax.swing.JTable();
+        add = new javax.swing.JButton();
+        modif = new javax.swing.JButton();
+        remove = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Gérer");
+
+        Ajouter.setBackground(new java.awt.Color(153, 153, 153));
 
         TableAdd.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -363,13 +371,13 @@ public class Gerer extends javax.swing.JFrame {
                                 .addComponent(supprimer)
                                 .addGap(18, 18, 18)
                                 .addComponent(ajouter)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AjouterLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jDesktopPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(187, 187, 187)))
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(105, 105, 105))
+                .addGap(87, 87, 87))
         );
         AjouterLayout.setVerticalGroup(
             AjouterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -389,6 +397,8 @@ public class Gerer extends javax.swing.JFrame {
         );
 
         jTabbedPane1.addTab("Voiture", Ajouter);
+
+        Modifier.setBackground(new java.awt.Color(153, 153, 153));
 
         TableB.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -589,15 +599,82 @@ public class Gerer extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Clients", Modifier);
 
+        jPanel4.setBackground(new java.awt.Color(153, 153, 153));
+
+        TableO.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        TableO.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TableOMouseClicked(evt);
+            }
+        });
+        jScrollPane3.setViewportView(TableO);
+
+        add.setBackground(new java.awt.Color(0, 51, 102));
+        add.setForeground(new java.awt.Color(255, 255, 255));
+        add.setText("Ajouter");
+        add.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addActionPerformed(evt);
+            }
+        });
+
+        modif.setBackground(new java.awt.Color(0, 51, 102));
+        modif.setForeground(new java.awt.Color(255, 255, 255));
+        modif.setText("Modifier");
+        modif.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                modifActionPerformed(evt);
+            }
+        });
+
+        remove.setBackground(new java.awt.Color(204, 0, 0));
+        remove.setForeground(new java.awt.Color(255, 255, 255));
+        remove.setText("Supprimer");
+        remove.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                removeActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1106, Short.MAX_VALUE)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(292, 292, 292)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(57, 57, 57)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(add)
+                    .addComponent(modif)
+                    .addComponent(remove))
+                .addContainerGap(212, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 527, Short.MAX_VALUE)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(83, 83, 83)
+                        .addComponent(add)
+                        .addGap(18, 18, 18)
+                        .addComponent(modif)
+                        .addGap(18, 18, 18)
+                        .addComponent(remove)))
+                .addContainerGap(83, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Offres", jPanel4);
@@ -627,9 +704,12 @@ public class Gerer extends javax.swing.JFrame {
         type.setText("");
         dispo.setText("");
         pop.setText("");
+        prix.setText("");
+        localisation.setText("");
+        boite.setText("");
     }
     
-    private Image resizeImage(byte[] imageData, int targetWidth, int targetHeight) {
+    public Image resizeImage(byte[] imageData, int targetWidth, int targetHeight) {
         try {
             // Lecture de l'image depuis le tableau d'octets
             ByteArrayInputStream bais = new ByteArrayInputStream(imageData);
@@ -677,10 +757,12 @@ public class Gerer extends javax.swing.JFrame {
         AjoutVoiture ajout = null;
         try {
             ajout = new AjoutVoiture();
+            ajout.setVisible(true);
+            AffichageOffre();
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(Gerer.class.getName()).log(Level.SEVERE, null, ex);
         }
-        ajout.setVisible(true);
+        
     }//GEN-LAST:event_ajouterActionPerformed
 
     private void TableBMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TableBMouseClicked
@@ -696,6 +778,55 @@ public class Gerer extends javax.swing.JFrame {
         }
         modifier.setVisible(true);
     }//GEN-LAST:event_modifierActionPerformed
+
+    private void TableOMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TableOMouseClicked
+        SelectionOffre();
+    }//GEN-LAST:event_TableOMouseClicked
+
+    private void addActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addActionPerformed
+        AOffre off = null;
+        try {
+            off = new AOffre();
+            off.setVisible(true);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Gerer.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_addActionPerformed
+
+    private void modifActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modifActionPerformed
+        if(test!=null){
+            MOffre off = null;
+            try {
+                off = new MOffre();
+                off.setVisible(true);
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(Gerer.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }else{
+            JOptionPane.showMessageDialog(this, "Veuillez selectionner une offre à modifier" ,"Erreur",JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_modifActionPerformed
+
+    private void removeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeActionPerformed
+        try{
+            if(JOptionPane.showConfirmDialog(null, "Êtes vous sûr de vouloir supprimer cette offre ?", "Supprimer Offre",JOptionPane.YES_NO_OPTION) == JOptionPane.OK_OPTION)
+                if(test != null){
+            
+                    String requete = "delete from offre where Num ='"+test+"' ";
+                    ps = conn.prepareStatement(requete);
+                    ps.execute();
+                    System.out.println("Offre supprimé");
+                    JOptionPane.showMessageDialog(null, "Offre supprimé");
+            
+                }else {
+                    JOptionPane.showMessageDialog(null, "Veuillez sélectionner une offre");
+                }
+            
+        }catch (Exception e){
+            System.out.println(e);
+        }
+        AffichageOffre();
+    }//GEN-LAST:event_removeActionPerformed
 
     void AffichageVoiture(){
         try{
@@ -753,7 +884,7 @@ public class Gerer extends javax.swing.JFrame {
                String t12 = rs.getString("Boîte");
                boite.setText(t12);
                
-               byte[] dataimage = rs.getBytes("image");
+               byte[] dataimage = rs.getBytes("imageext");
                Image resizeImage = resizeImage(dataimage,261,179);
                Format = new ImageIcon(resizeImage);
                image.setIcon(Format);
@@ -794,6 +925,27 @@ public class Gerer extends javax.swing.JFrame {
                String t10 = rs.getString("Statut");
                statut.setText(t10);
             }
+            
+        }catch (Exception e){
+            System.out.println(e);
+        }
+    }
+    
+     private void AffichageOffre(){
+        try{
+            String requete = "select * from offre";
+            ps = conn.prepareStatement(requete);
+            rs = ps.executeQuery();
+            TableO.setModel(DbUtils.resultSetToTableModel(rs));
+        }catch (Exception e){
+            System.out.println(e);
+        }
+    }
+     
+    public void SelectionOffre(){
+         try{
+            int row = TableO.getSelectedRow();
+            this.test = (TableO.getModel().getValueAt(row, 0).toString());
             
         }catch (Exception e){
             System.out.println(e);
@@ -845,6 +997,7 @@ public class Gerer extends javax.swing.JFrame {
                 } catch (ClassNotFoundException ex) {
                     Logger.getLogger(Gerer.class.getName()).log(Level.SEVERE, null, ex);
                 }
+               
             }
         });
     }
@@ -854,6 +1007,8 @@ public class Gerer extends javax.swing.JFrame {
     private javax.swing.JPanel Modifier;
     private javax.swing.JTable TableAdd;
     private javax.swing.JTable TableB;
+    private javax.swing.JTable TableO;
+    private javax.swing.JButton add;
     private javax.swing.JLabel adresse;
     private javax.swing.JButton ajouter;
     private javax.swing.JLabel boite;
@@ -891,11 +1046,13 @@ public class Gerer extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JLabel localisation;
     private javax.swing.JLabel mail;
     private javax.swing.JLabel marque;
     private javax.swing.JLabel modele;
+    private javax.swing.JButton modif;
     private javax.swing.JButton modifier;
     private javax.swing.JLabel moteur;
     private javax.swing.JLabel nom;
@@ -905,6 +1062,7 @@ public class Gerer extends javax.swing.JFrame {
     private javax.swing.JLabel prenom;
     private javax.swing.JLabel prix;
     private javax.swing.JLabel puissance;
+    private javax.swing.JButton remove;
     private javax.swing.JLabel statut;
     private javax.swing.JButton supprimer;
     private javax.swing.JLabel tel;

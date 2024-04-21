@@ -1,0 +1,16 @@
+<component name="libraryTable">
+  <library name="itextpdf-5.5.9">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/libs/itextpdf-5.5.9.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/AbsoluteLayout-RELEASE210.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/jcalendar-1.4.jar!/" />
+      <root url="file://$PROJECT_DIR$" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="file://$PROJECT_DIR$/cnx/src" />
+      <root url="file://$PROJECT_DIR$/projet_netbeans/gererTable/src" />
+      <root url="file://$PROJECT_DIR$/src" />
+    </SOURCES>
+  </library>
+</component>
